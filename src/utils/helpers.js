@@ -34,6 +34,11 @@ const solarDetails = {
   panelEff: 0.85,
 };
 
+function roundUpToDecimalPlace(number, decimalPlaces) {
+  const factor = 10 ** decimalPlaces;
+  return Math.ceil(number * factor) / factor;
+}
+
 export class Calculator {
   constructor(loadTable, batteryDetails, solarDetails) {
     this.loadArr = loadTable;
@@ -107,8 +112,6 @@ export class Calculator {
     const requiredSolar = calcFunc(this.totals.totalEnergy);
     const minimumRequiredSolar = calcFunc(this.totals.totalDayTime);
 
-    console.log(requiredSolar);
-
     // Optimum Solar Size
     const modSize = this.solarDetails.solarSize;
     const optimumSolarModules = requiredSolar / modSize;
@@ -131,20 +134,32 @@ export class Calculator {
 
     const noOfBattery = this.totals.totalNightTime / realBatteryKWH;
 
-    return { battDet, batteryKWH, realBatteryKWH, noOfBattery };
+    return { batteryKWH, realBatteryKWH, noOfBattery };
   }
 
-  getUnits() {
+  get getUnits() {
+    const roundNumber = 1;
     // Get optimum Soalr Panel Modules
-    const optimumModules = this.solarUnits.optimumSolarModules;
+    const optimumModules = roundUpToDecimalPlace(
+      this.solarUnits.optimumSolarModules,
+      roundNumber
+    );
 
     // Get minimum Solar Modules
-    const minimumModules = this.solarDetails.minimumSolarModules;
+    const minimumModules = roundUpToDecimalPlace(
+      this.solarUnits.minimumSolarModules,
+      roundNumber
+    );
 
     // Get Battery
-    const batteryToUse = this.batteryDetails.noOfBattery;
+    const batteryToUse = roundUpToDecimalPlace(
+      this.batteryUnits.noOfBattery,
+      roundNumber
+    );
+    return { optimumModules, minimumModules, batteryToUse };
   }
 }
 
-// const newObj = new Calculator(loadDetails, batteryDetails, solarDetails);
-// console.log(newObj);
+const calculator = new Calculator(loadDetails, batteryDetails, solarDetails);
+
+export const getNameVal = (e) => [e.target.name, e.target.value];

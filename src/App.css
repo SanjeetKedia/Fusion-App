@@ -1,11 +1,12 @@
 html,
 body,
-#root {
+#root,
+.App {
   height: 100%;
   overflow: hidden;
 }
 
-.App {
+.calculator-app {
   display: flex;
   flex-direction: column;
   font-family: "Rubik", sans-serif;
@@ -38,4 +39,8 @@ body,
   );
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0085CC", endColorstr="#0CAAFF", GradientType=1 );
+}
+
+div.solar-battery-details {
+  display: flex;
 }

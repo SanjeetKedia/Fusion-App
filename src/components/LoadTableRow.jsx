@@ -1,6 +1,7 @@
 import React from "react";
 
 const LoadTableRow = (props) => {
+  const row = props.row;
   return (
     <tr>
       <td>{props.i}</td>
@@ -9,7 +10,7 @@ const LoadTableRow = (props) => {
           type="number"
           name="watt"
           id="watt"
-          value={props.row.watt}
+          value={row.watt}
           onChange={(e) => props.handleChange(e, props.i)}
         />
       </td>
@@ -18,25 +19,25 @@ const LoadTableRow = (props) => {
           type="number"
           name="qty"
           id="qty"
-          value={props.row.qty}
+          value={row.qty}
           onChange={(e) => props.handleChange(e, props.i)}
         />
       </td>
       <td>
         <input
           type="number"
-          name="dayTime"
+          name="daytimeHour"
           id="dayTime"
-          value={props.row.dayTime}
+          value={row.daytimeHour}
           onChange={(e) => props.handleChange(e, props.i)}
         />
       </td>
       <td>
         <input
           type="number"
-          name="backUp"
+          name="backupHour"
           id="backUp"
-          value={props.row.backUp}
+          value={row.backupHour}
           onChange={(e) => props.handleChange(e, props.i)}
         />
       </td>
