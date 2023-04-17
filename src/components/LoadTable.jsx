@@ -4,24 +4,11 @@ import "../styles/LoadTable.scss";
 import LoadTableRow from "./LoadTableRow";
 
 const LoadTable = (props) => {
-  const [rowVals, setRowVals] = useState(props.defaultTable);
-
   const handleChange = (e, i) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    setRowVals((prev) => {
-      return prev.map((obj) => {
-        if (obj.rowId == i) {
-          return {
-            ...obj,
-            [name]: value,
-          };
-        }
-        return obj;
-      });
-    });
-    props.onStateChange(obj);
+    props.onChange(name, value, i);
   };
 
   return (
@@ -36,7 +23,7 @@ const LoadTable = (props) => {
         </tr>
       </thead>
       <tbody>
-        {rowVals.map((row, ind) => {
+        {props.tableState.map((row, ind) => {
           const i = ind + 1;
           return (
             <LoadTableRow key={i} i={i} handleChange={handleChange} row={row} />

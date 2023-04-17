@@ -5,25 +5,31 @@ import LoadTable from "./components/LoadTable";
 import { defaultLoadTable } from "./utils/defaults";
 
 function App() {
-  const [loadArr, setLoadArr] = useState([]);
+  const [loadTableArr, setLoadTableArr] = useState(defaultLoadTable);
 
-  const handleLoadArrChange = (newState) => {
-    setLoadArr(newState);
+  const handleLoadTableChange = (name, val, i) => {
+    setLoadTableArr((prev) => {
+      return prev.map((obj) => {
+        if (obj.rowId == i) {
+          return {
+            ...obj,
+            [name]: val,
+          };
+        }
+        return obj;
+      });
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(loadArr);
+    console.log(loadTableArr);
   };
 
   return (
     <form className="App" onSubmit={handleSubmit}>
-      <LoadTable
-        onStateChange={handleLoadArrChange}
-        defaultTable={defaultLoadTable}
-        onSubmit={handleLoadArrChange}
-      />
+      <LoadTable onChange={handleLoadTableChange} tableState={loadTableArr} />
       <button type="submit">Submit</button>
     </form>
   );
