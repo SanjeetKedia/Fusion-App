@@ -1,0 +1,62 @@
+.battery-solar-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  // align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  max-width: 1000px;
+
+  input {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  input:feocus {
+    font-weight: 500;
+  }
+
+  .battery-details,
+  .solar-details {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      max-width: 200px;
+
+      p {
+        font-weight: 400;
+      }
+
+      input {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .line-break {
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 500px) {
+    // .line-break {
+    //   display: block;
+    //   width: 100%;
+    // }
+
+    .battery-details,
+    .solar-details {
+      label {
+        max-width: 100px;
+      }
+
+      width: fit-content;
+    }
+  }
+}

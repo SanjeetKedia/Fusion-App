@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/BatteryDetails.scss";
 
 // Helpers
 import { getNameVal } from "../utils/helpers";
@@ -14,9 +13,9 @@ const BatteryDetails = (props) => {
   const state = props.batteryState;
 
   return (
-    <div>
+    <div className="battery-details">
       <label htmlFor="ah">
-        Battery Ah:{" "}
+        <p>Battery Ah: </p>
         <input
           type="number"
           name="ah"
@@ -27,7 +26,7 @@ const BatteryDetails = (props) => {
         />
       </label>
       <label htmlFor="v">
-        Battery V:{" "}
+        <p>Battery V: </p>
         <input
           type="number"
           name="v"
@@ -38,7 +37,7 @@ const BatteryDetails = (props) => {
         />
       </label>
       <label htmlFor="dod">
-        Battery DOD:{" "}
+        <p>Battery DOD: </p>
         <input
           type="number"
           name="dod"

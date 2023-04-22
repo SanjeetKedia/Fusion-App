@@ -13,9 +13,9 @@ const SolarDetails = (props) => {
   const state = props.solarState;
 
   return (
-    <div>
+    <div className="solar-details">
       <label htmlFor="solar-size">
-        Solar Size:{" "}
+        <p>Solar Size: </p>
         <input
           type="number"
           name="solarSize"
@@ -25,7 +25,7 @@ const SolarDetails = (props) => {
         />
       </label>
       <label htmlFor="sun-hour">
-        Sun Hour:{" "}
+        <p>Sun Hour: </p>
         <input
           type="number"
           name="sunHour"
@@ -35,7 +35,7 @@ const SolarDetails = (props) => {
         />
       </label>
       <label htmlFor="panel-eff">
-        Panel Efficiency:{" "}
+        <p>Panel Efficiency: </p>
         <input
           type="number"
           name="panelEff"

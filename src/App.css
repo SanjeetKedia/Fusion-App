@@ -1,18 +1,6 @@
-html,
-body,
-#root,
-.App {
-  height: 100%;
-  overflow: hidden;
-}
-
-.calculator-app {
-  display: flex;
-  flex-direction: column;
-  font-family: "Rubik", sans-serif;
-  background: hsla(201, 100%, 40%, 1);
-  height: 100%;
-  padding: 1rem;
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
 
   background: linear-gradient(
     135deg,
@@ -39,8 +27,7 @@ body,
   );
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0085CC", endColorstr="#0CAAFF", GradientType=1 );
-}
 
-div.solar-battery-details {
-  display: flex;
+  height: 100%;
+  min-height: 100vh;
 }

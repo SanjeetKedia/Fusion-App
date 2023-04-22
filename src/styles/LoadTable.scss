@@ -9,6 +9,7 @@ table {
   align-self: center;
   background-color: white;
   margin-top: 1rem;
+  // font-weight: 700;
 
   thead {
     font-size: 1.5rem;
@@ -29,11 +30,13 @@ table {
       width: auto;
       white-space: nowrap;
       text-align: center;
+      font-weight: 500;
     }
 
     td,
     input {
       font-size: 1rem;
+      font-weight: 500;
     }
 
     &:not(:first-child) {
@@ -80,12 +83,12 @@ table {
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 425px) {
   table {
     th,
     td,
     input {
-      padding: 0;
+      padding: 0.5rem;
     }
   }
 }

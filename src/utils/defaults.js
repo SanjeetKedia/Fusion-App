@@ -37,13 +37,13 @@ export const defaultLoadTable = [
 ];
 
 export const defaultBattery = {
-  ah: "250",
-  v: "48",
+  ah: "",
+  v: "",
   dod: "0.7",
 };
 
 export const defaultSolar = {
-  solarSize: "560",
+  solarSize: "",
   sunHour: "5",
   panelEff: "0.85",
 };

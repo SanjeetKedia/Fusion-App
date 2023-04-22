@@ -1,0 +1,35 @@
+.calculator-app {
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  padding: 1rem;
+}
+
+.submit-button {
+  max-width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  transition: all ease-in-out 100ms;
+}
+
+.submit-button:hover {
+  border: 1px solid white;
+}
+
+.submit-button:active {
+  background-color: white;
+  color: black;
+}
+
+.hr {
+  width: 100%;
+  margin-top: 1rem;
+  max-width: 1000px;
+}
