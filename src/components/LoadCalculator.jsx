@@ -16,6 +16,8 @@ import SolarDetails from "../components/SolarDetails";
 import Results from "../components/Results";
 // Importing Helpers
 import { Calculator } from "../utils/helpers";
+// Import Generating PDF function
+import GeneratePDFForm from "./GeneratePDFForm";
 
 const LoadCalculator = () => {
   const [loadTableArr, setLoadTableArr] = useState(defaultLoadTable);
@@ -63,22 +65,29 @@ const LoadCalculator = () => {
     setResults(calcObj.getUnits);
   };
   return (
-    <form className="calculator-app" onSubmit={handleSubmit}>
-      <LoadTable onChange={handleLoadTableChange} tableState={loadTableArr} />
-      <div className="battery-solar-details">
-        <BatteryDetails
-          batteryState={batteryDet}
-          onChange={handleBatteryChange}
-        />
-        <hr className="line-break" />
-        <SolarDetails solarState={solarDet} onChange={handleSolarChange} />
-      </div>
-      <hr className="hr"></hr>
-      <button className="submit-button" type="submit">
-        Submit
-      </button>
-      <Results results={results} />
-    </form>
+    <>
+      <form className="calculator-app" onSubmit={handleSubmit}>
+        <LoadTable onChange={handleLoadTableChange} tableState={loadTableArr} />
+        <div className="battery-solar-details">
+          <BatteryDetails
+            batteryState={batteryDet}
+            onChange={handleBatteryChange}
+          />
+          <hr className="line-break" />
+          <SolarDetails solarState={solarDet} onChange={handleSolarChange} />
+        </div>
+        <hr className="hr"></hr>
+        <button className="submit-button" type="submit">
+          Submit
+        </button>
+        <Results results={results} />
+      </form>
+      <GeneratePDFForm
+        batteryDet={batteryDet}
+        solarDet={solarDet}
+        loadTableArr={loadTableArr}
+      />
+    </>
   );
 };
 

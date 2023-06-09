@@ -5,6 +5,7 @@ export const defaultLoadTable = [
     qty: "",
     daytimeHour: "",
     backupHour: "",
+    description: "",
   },
   {
     rowId: 2,
@@ -12,6 +13,7 @@ export const defaultLoadTable = [
     qty: "",
     daytimeHour: "",
     backupHour: "",
+    description: "",
   },
   {
     rowId: 3,
@@ -19,6 +21,7 @@ export const defaultLoadTable = [
     qty: "",
     daytimeHour: "",
     backupHour: "",
+    description: "",
   },
   {
     rowId: 4,
@@ -26,6 +29,7 @@ export const defaultLoadTable = [
     qty: "",
     daytimeHour: "",
     backupHour: "",
+    description: "",
   },
   {
     rowId: 5,
@@ -33,6 +37,7 @@ export const defaultLoadTable = [
     qty: "",
     daytimeHour: "",
     backupHour: "",
+    description: "",
   },
 ];
 

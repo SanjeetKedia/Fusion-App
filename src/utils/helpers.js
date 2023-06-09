@@ -1,3 +1,5 @@
+import { generatePDF } from "../pdf-me/generate";
+
 const loadDetails = [
   {
     description: "A",
@@ -160,6 +162,58 @@ export class Calculator {
   }
 }
 
-const calculator = new Calculator(loadDetails, batteryDetails, solarDetails);
-
 export const getNameVal = (e) => [e.target.name, e.target.value];
+
+const getDate = () => {
+  const today = new Date();
+  const day = today.getDate().toString().padStart(2, "0");
+  const month = (today.getMonth() + 1).toString().padStart(2, "0");
+  const year = today.getFullYear().toString().slice(-2);
+  const formattedDate = `${day}.${month}.${year}`;
+
+  return formattedDate;
+};
+
+export const prepareForGeneration = (calcObj, extraInfo) => {
+  const date = getDate();
+
+  const totals = calcObj.totals;
+  const solarDet = calcObj.solarDetails;
+  const results = calcObj.getUnits;
+  const battDet = calcObj.batteryDetails;
+  const loadArr = calcObj.loadArr;
+
+  const inputs = [
+    {
+      name: "" + extraInfo.name,
+      phoneNo: "" + extraInfo.phoneNo,
+      address: "" + extraInfo.address,
+      date: date,
+      totalWatt: "" + totals.totalLoad,
+      totalLoad: "" + totals.totalLoad,
+      solarPanel: "" + solarDet.solarSize,
+      battV: "" + battDet.v,
+      battAh: "" + battDet.ah,
+      battDod: "" + battDet.dod,
+      noOfBatt: "" + results.batteryToUse,
+      minSolar: "" + results.minimumModules,
+      reqSolar: "" + results.optimumModules,
+    },
+  ];
+
+  loadArr.forEach((input, i) => {
+    const ind = i + 1;
+    const inp = inputs[0];
+    inp[`desc${ind}`] = input.description;
+    inp[`watt${ind}`] = input.watt;
+    inp[`qty${ind}`] = input.qty;
+    inp[`subTotal${ind}`] =
+      input.subTotalWatt == 0 ? "" : "" + input.subTotalWatt;
+    inp[`dayHr${ind}`] = input.daytimeHour;
+    inp[`nigHr${ind}`] = input.backupHour;
+  });
+
+  console.log(inputs);
+
+  generatePDF(inputs);
+};

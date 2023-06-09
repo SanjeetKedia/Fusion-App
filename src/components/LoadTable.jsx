@@ -15,6 +15,7 @@ const LoadTable = (props) => {
     <table>
       <thead>
         <tr>
+          <th>Description</th>
           <th>No</th>
           <th>Watt</th>
           <th>Qty</th>

@@ -7,6 +7,14 @@ const LoadTableRow = (props) => {
       <td>{props.i}</td>
       <td>
         <input
+          type="text"
+          name="description"
+          id="description"
+          onChange={(e) => props.handleChange(e, props.i)}
+        />
+      </td>
+      <td>
+        <input
           type="number"
           name="watt"
           id="watt"
