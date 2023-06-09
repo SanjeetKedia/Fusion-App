@@ -15,12 +15,12 @@ const LoadTable = (props) => {
     <table>
       <thead>
         <tr>
-          <th>Description</th>
           <th>No</th>
+          <th>Desc</th>
           <th>Watt</th>
           <th>Qty</th>
-          <th>Day Time</th>
-          <th>BackUp Hour</th>
+          <th>Day Hr</th>
+          <th>Bckup Hr</th>
         </tr>
       </thead>
       <tbody>

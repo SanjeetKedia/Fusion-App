@@ -164,6 +164,15 @@ export class Calculator {
 
 export const getNameVal = (e) => [e.target.name, e.target.value];
 
+export const changeState = (stateCall, name, value) => {
+  stateCall((prev) => {
+    return {
+      ...prev,
+      [name]: value,
+    };
+  });
+};
+
 const getDate = () => {
   const today = new Date();
   const day = today.getDate().toString().padStart(2, "0");

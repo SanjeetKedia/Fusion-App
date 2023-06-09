@@ -58,3 +58,10 @@ export const defaultResults = {
   minimumModules: "",
   optimumModules: "",
 };
+
+export const defaultClientInfo = {
+  name: "",
+  phoneNo: "",
+  address: "",
+  email: "",
+};

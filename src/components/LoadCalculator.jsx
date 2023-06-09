@@ -15,7 +15,7 @@ import BatteryDetails from "../components/BatteryDetails";
 import SolarDetails from "../components/SolarDetails";
 import Results from "../components/Results";
 // Importing Helpers
-import { Calculator } from "../utils/helpers";
+import { Calculator, changeState } from "../utils/helpers";
 // Import Generating PDF function
 import GeneratePDFForm from "./GeneratePDFForm";
 
@@ -40,21 +40,11 @@ const LoadCalculator = () => {
   };
 
   const handleBatteryChange = (name, value) => {
-    setBatteryDet((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
+    changeState(setBatteryDet, name, value);
   };
 
   const handleSolarChange = (name, value) => {
-    setSolarDet((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
+    changeState(setSolarDet, name, value);
   };
 
   const handleSubmit = (e) => {
@@ -81,6 +71,7 @@ const LoadCalculator = () => {
           Submit
         </button>
         <Results results={results} />
+        <hr className="hr"></hr>
       </form>
       <GeneratePDFForm
         batteryDet={batteryDet}
